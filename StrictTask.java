@@ -17,7 +17,8 @@ public class StrictTask {
 
 	public String getName() {
 		return name;
-	}
+    }
+    
 	public void setStartDate(Calendar startTime) {
 		this.startTime = startTime;
 	}
