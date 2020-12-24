@@ -5,6 +5,7 @@ import java.time.temporal.ChronoUnit;
 
 public class ScheduleBuilder {
     private TreeMap<LocalDate, Day> days;
+    private TreeMap<LocalDate, SolvedDay> solution;
 
 	public ScheduleBuilder() {
         this.days = new TreeMap<LocalDate, Day>();
