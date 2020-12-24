@@ -3,11 +3,11 @@ import java.util.HashSet;
 public class Day{
     private int minutes;
     private HashSet<LooseTask> looseTasksEndingToday;
-    private HashSet<StrictTask> strictTasksStartingToday;
+    private HashSet<StrictTask> strictTasks;
 
     public Day() {
         this.looseTasksEndingToday = new HashSet<LooseTask>();
-        this.strictTasksStartingToday = new HashSet<StrictTask>();
+        this.strictTasks = new HashSet<StrictTask>();
     }
 
     public int getMinutes() {
@@ -18,8 +18,8 @@ public class Day{
         return looseTasksEndingToday;
     }
 
-    public HashSet<StrictTask> getStrictTasksStartingToday() {
-        return strictTasksStartingToday;
+    public HashSet<StrictTask> getStrictTasks() {
+        return strictTasks;
     }
 
     public void addStrictTaskMinutes(int minutes) {
@@ -27,7 +27,7 @@ public class Day{
     }
 
     public void addStrictTask(StrictTask task) {
-        strictTasksStartingToday.add(task);
+        strictTasks.add(task);
     }
 
     public void addLooseTask(LooseTask task) {

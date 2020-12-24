@@ -1,4 +1,3 @@
-import java.util.*;
 import java.time.LocalTime;
 
 public class LooseTask {
@@ -22,13 +21,6 @@ public class LooseTask {
 
     public int getDurationMinutes() {
         return durationMinutes;
-    }
-    
-
-    public StrictTask toStrictTask(Calendar startTime, int duration) {
-        GregorianCalendar endTime = (GregorianCalendar) startTime.clone();
-        endTime.add(Calendar.MINUTE, duration);
-        return new StrictTask(this.name, startTime, endTime);
     }
 }
 
