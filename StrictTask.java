@@ -1,6 +1,6 @@
 import java.time.LocalTime;
 
-public class StrictTask {
+public class StrictTask implements Comparable<StrictTask> {
 	private String name;
 	private LocalTime startTime;
 	private LocalTime endTime;
@@ -21,5 +21,9 @@ public class StrictTask {
 
 	public LocalTime getEndTime() {
 		return endTime;
-	}
+    }
+    
+    public int compareTo(StrictTask other) {
+        return startTime.compareTo(other.startTime);
+    }
 }
