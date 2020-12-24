@@ -1,46 +1,29 @@
 import java.util.*;
+import java.time.LocalTime;
 
 public class LooseTask {
     private String name;
-    private Calendar deadline;
+    private LocalTime time;
     private int durationMinutes;
     
-    public LooseTask(String name, Calendar deadline, int durationMinutes) {
+    public LooseTask(String name, LocalTime time, int durationMinutes) {
         this.name = name;
-        this.deadline = deadline;
+        this.time = time;
         this.durationMinutes = durationMinutes;
-    }
-    
-    public void setName(String name) {
-        this.name = name;
     }
     
     public String getName() {
         return name;
     }
     
-    public void setDeadline(Calendar deadline) {
-        this.deadline = deadline;
+    public LocalTime getTime() {
+        return time;
     }
-    
-    public Calendar getDeadline() {
-        return deadline;
-    }
-    
-    public void setDuration(int durationMinutes) {
-        this.durationMinutes = durationMinutes;
-    }
-    
+
     public int getDurationMinutes() {
         return durationMinutes;
     }
     
-    public Calendar getDeadlineDay() {
-        Calendar cal = new GregorianCalendar();
-        cal.set(deadline.get(Calendar.YEAR), deadline.get(Calendar.MONTH),
-                                    deadline.get(Calendar.DATE), 0, 0, 0);
-        return cal;
-    }
 
     public StrictTask toStrictTask(Calendar startTime, int duration) {
         GregorianCalendar endTime = (GregorianCalendar) startTime.clone();
