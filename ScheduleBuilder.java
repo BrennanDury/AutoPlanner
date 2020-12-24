@@ -17,7 +17,7 @@ public class ScheduleBuilder {
         if (!days.containsKey(date)) {
             days.put(date, new Day());
         }
-        days.get(date).addLooseTask(new LooseTask(name, time, durationMinutes));
+        days.get(date).addLooseTask(new LooseTask(name, date.atTime(time), durationMinutes));
 	}
 
 	public void addStrictTask(String name, int startYear, int startMonth, int startDate, int startHour, int startMinute, int endYear, int endMonth, int endDate, int endHour, int endMinute) {

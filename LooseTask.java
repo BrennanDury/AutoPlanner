@@ -1,11 +1,11 @@
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 public class LooseTask implements Comparable<LooseTask> {
     private String name;
-    private LocalTime deadline;
+    private LocalDateTime deadline;
     private int durationMinutes;
     
-    public LooseTask(String name, LocalTime deadline, int durationMinutes) {
+    public LooseTask(String name, LocalDateTime deadline, int durationMinutes) {
         this.name = name;
         this.deadline = deadline;
         this.durationMinutes = durationMinutes;
@@ -15,7 +15,7 @@ public class LooseTask implements Comparable<LooseTask> {
         return name;
     }
     
-    public LocalTime getDeadline() {
+    public LocalDateTime getDeadline() {
         return deadline;
     }
 
