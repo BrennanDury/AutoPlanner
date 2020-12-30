@@ -25,17 +25,6 @@ public class ScheduleBuilder {
         LocalDate endKey = LocalDate.of(endYear, endMonth, endDate);
         LocalTime startTime = LocalTime.of(startHour, startMinute);
         LocalTime endTime = LocalTime.of(endHour, endMinute);
-        if (!startKey.equals(endKey)) {
-            if (!days.containsKey(startKey)) {
-                days.put(startKey, new Day());
-            }
-            days.get(startKey).addStrictTask(new StrictTask(name, LocalTime.of(startHour, startMinute), LocalTime.of(23,59)));
-            int minutes = (int) startTime.until(LocalTime.of(23,59), ChronoUnit.MINUTES);
-            days.get(startKey).addStrictTaskMinutes(minutes);
-            startHour = 0;
-            startMinute = 0;
-            startTime = LocalTime.of(startHour, startMinute);
-        }
         while (!startKey.equals(endKey)) {
             if (!days.containsKey(startKey)) {
                 days.put(startKey, new Day());
@@ -43,6 +32,9 @@ public class ScheduleBuilder {
             days.get(startKey).addStrictTask(new StrictTask(name, LocalTime.of(0, 0), LocalTime.of(23,59)));
             int minutes = (int) LocalTime.of(0, 0).until(LocalTime.of(23,59), ChronoUnit.MINUTES);
             days.get(startKey).addStrictTaskMinutes(minutes);
+            startHour = 0;
+            startMinute = 0;
+            startTime = LocalTime.of(startHour, startMinute);
         }
         if (!days.containsKey(startKey)) {
             days.put(startKey, new Day());
