@@ -11,6 +11,8 @@ public class StrictTask implements Comparable<StrictTask> {
 		this.endTime = endTime;
 	}
 
+    
+    
 	public String getName() {
 		return name;
     }

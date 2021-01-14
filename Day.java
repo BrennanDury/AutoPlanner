@@ -1,6 +1,6 @@
 import java.util.HashSet;
 
-public class Day{
+public class Day {
     private int minutes;
     private HashSet<LooseTask> looseTasksEndingToday;
     private HashSet<StrictTask> strictTasks;

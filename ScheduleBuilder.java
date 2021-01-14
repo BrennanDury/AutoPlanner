@@ -9,8 +9,32 @@ public class ScheduleBuilder {
 
 	public ScheduleBuilder() {
         this.days = new TreeMap<LocalDate, Day>();
+        this.solution = new TreeMap<LocalDate, SolvedDay>();
     }
     
+    public void solve() {
+        LocalDate prev = LocalDate.now();
+
+        for (LocalDate date : days.keySet()) {
+            if (!solution.containsKey(date)) {
+                solution.put(date, new SolvedDay());
+            }
+            int wholeDaysBetween = (int) prev.until(date, ChronoUnit.DAYS);
+            for (StrictTask strictTask : days.get(date).getStrictTasks()) {
+                solution.get(date).addStrictTask(strictTask);
+            }
+            for (LooseTask looseTask : days.get(date).getlooseTasksEndingToday())
+            {
+                double percentOfLastDay;
+                
+            }
+            if (!days.get(date).getlooseTasksEndingToday().isEmpty()) {
+                prev = date;
+            }
+        }
+        
+    }
+
 	public void addLooseTask(String name, int durationMinutes, int deadlineYear, int deadlineMonth, int deadlineDate, int deadlineHour, int deadlineMinute) {
         LocalDate date = LocalDate.of(deadlineYear, deadlineMonth, deadlineDate);
         LocalTime time = LocalTime.of(deadlineHour, deadlineMinute);
